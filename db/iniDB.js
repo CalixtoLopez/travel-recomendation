@@ -26,10 +26,16 @@ async function main() {
                           city VARCHAR(255) NOT NULL,
                           title_two VARCHAR(400) NOT NULL,
                           description TEXT NOT NULL,
-                          photofoto VARCHAR(50)
+                          photo VARCHAR(50)
     )`);
     await connection.query(`CREATE TABLE vote_recomendation(
-                          
+                          id INT PRIMARY KEY AUTsO_INCREMENT,
+                          vote TINYINT,
+                          id_recomendation INT NOT NULL,
+                          FOREIGN KEY (id_recomendation) REFERENCES recomendation(id),
+                          id_users INT NOT NULL,
+                          FOREIGN KEY (id_users) REFERENCES users(id)
+
     )`);
   } catch (error) {
     console.log(error);
