@@ -19,8 +19,18 @@ async function main() {
                           email VARCHAR(100) UNIQUE NOT NULL,
                           password VARCHAR(512) NOT NULL
     )`);
-    await connection.query(`CREATE TABLE reacomendation()`);
-    await connection.query(`CREATE TABLE vote_recomendation()`);
+    await connection.query(`CREATE TABLE recomendation(
+                          id INT PRIMARY KEY AUTO_INCREMENT,
+                          title VARCHAR(255) NOT NULL,
+                          category VARCHAR(255) NOT NULL,
+                          city VARCHAR(255) NOT NULL,
+                          title_two VARCHAR(400) NOT NULL,
+                          description TEXT NOT NULL,
+                          photofoto VARCHAR(50)
+    )`);
+    await connection.query(`CREATE TABLE vote_recomendation(
+                          
+    )`);
   } catch (error) {
     console.log(error);
   } finally {
